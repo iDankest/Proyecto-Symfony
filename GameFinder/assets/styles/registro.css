@@ -1,0 +1,90 @@
+*{
+    body {
+        background-image: url('../image/fondo.jpg'); /* Ajusta la ruta si es necesario */
+        background-size: cover; /* Ajusta el tamaño de la imagen al gusto */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+      }
+}
+.conteiner {
+    display: flex;
+/*     flex-direction: column; */
+    align-items: center;
+    justify-content: space-evenly;
+    height: 92.2vh;
+    background-color: #1a1a1aaf;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap : 200rem;
+    width: 20em;
+    padding: 2em;
+    border-radius: 10px;
+    background-color: rgba(240, 248, 255, 0.336);
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+input[type="password"], input[type="email"], input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  input[type="checkbox"] {
+    margin-right: 111px;
+  }
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius:  
+   3px;
+    cursor: pointer;
+  }
+  nav{
+    color: white;
+    background-color: #1a1a1ace;
+    height: 5vh;
+    padding: 10px;
+  }
+  ol{
+    display: flex;
+/*     justify-content: space-between; */
+    justify-content: center;
+    gap: 10em;
+    margin-left: 2em;
+    margin-right: 2em;
+    align-items: center;
+  }
+li input[type="text"] {
+    border-radius: 30px;
+    width: 50em;
+    background-color: #1a1a1aa8;
+    background-image: url('../image/lupa.png');
+  background-position: 10px center;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  padding-left: 30px; 
+  text-indent: 1em; 
+}
+  
+li input[type="text"]:hover {
+    transition: 0.5s;
+    background-color: #ffffff;
+}
+h1{
+    color: white;
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}

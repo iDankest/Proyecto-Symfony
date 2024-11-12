@@ -1,36 +1,65 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    {{ parent() }} 
+    <link rel="stylesheet" href="{{ asset('styles/registro.css') }}"> 
+{% endblock %}
 {% block title %}Register
 {% endblock %}
 
 {% block body %}
-	<div id="bgCenter" class="mx-auto my-[200px] w-auto min-w-[500px] max-w-[600px] h-[500px] text-white
-									rounded-3xl border-2 border-neutral-950">
+
+	<nav><ol>
+	<li>Home</li>
+	<li><input type="text" name="" id="" placeholder='Search'></li>
+	<li>Logout</li>
+	</ol></nav>
+
+	<div class="conteiner">
 
 
-		<div class="flex justify-center h-[100px]">LOGO</div>
+	
 
-		<h1 class="flex justify-center">Register</h1>
 
-		<div class="ml-[50px]">
+
+		<div class='formulario'>
+
 			{{ form_errors(registrationForm) }}
 
 
 			{{ form_start(registrationForm) }}
-			<br>
 
-			{{ form_row(registrationForm.email) }}
-			<br>
+			<h1>Sign up</h1>
+			{{ form_row(registrationForm.email,{
+				'label': false,
+				'attr': {
+				    'placeholder': 'Email'				}
+			}) }}
+
 
 			{{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-			<br>
+            'label': false,
+			'attr': {
+			'placeholder': 'Password'				}
+        	}) }}
 
-			{{ form_row(registrationForm.agreeTerms) }}
+
+			{{ form_row(registrationForm.agreeTerms,{
+				'label': false,
+			}
+			) }}
 
 			<button type="submit" class="btn">SUBMIT</button>
 			{{ form_end(registrationForm) }}
+		</div>
+			 <h1>0</h1>
+		<div class='formulario'>
+		
+		<form action=""><h1>Login</h1>
+			<input type="email" name="email" id="" placeholder="Email">
+			<input type="password" name="password" id="" placeholder="Password">
+			<input type="checkbox" name="agree" id="" placeholder="agree">
+			<button type="submit" class="btn">SUBMIT
+		</form>
 		</div>
 
 	</div>
