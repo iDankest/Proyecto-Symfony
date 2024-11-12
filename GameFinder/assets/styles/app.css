@@ -4,5 +4,11 @@
 
 
 body {
-    background-color: skyblue;
+background: rgb(34, 34, 34);
+    background: linear-gradient(210deg, rgba(34, 34, 34, 1) 30%, rgba(68, 68, 68, 1) 50%, rgba(149, 149, 149, 1) 80%);
+}
+
+#bgCenter{
+    background: rgb(34, 34, 34);
+        background: linear-gradient(35deg, rgba(34, 34, 34, 1) 10%, rgba(68, 68, 68, 1) 65%, rgba(149, 149, 149, 1) 100%);
 }
