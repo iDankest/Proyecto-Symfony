@@ -3,29 +3,65 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+	<form method="post">
+		{% if error %}
+			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+		{% if app.user %}
+			<div class="mb-3">
+				You are logged in as
+				{{ app.user.userIdentifier }},
+				<a href="{{ path('app_logout') }}">Logout</a>
+			</div>
+		{% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+		<div class="mx-auto my-[200px] w-auto min-w-[500px] max-w-[600px] h-[500px] bg-gray-600 text-white rounded-3xl border-2 border-neutral-950">
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+			<div class="flex justify-center h-[100px]">LOGO</div>
+
+			<div class="flex justify-center text-2xl">YOUR PERFECT GAME FINDER</div>
+			<br>
+			<div class="flex justify-center">LOG IN</div>
+
+
+			<div
+				class="flex-col mx-[140px]">
+
+				{# 	<label for="inputName">NAME</label>
+					<input type="name" value="{{ last_username }}" name="name" id="inputName" class="form-control mt-[50px] my-[10px]" autocomplete="name" required autofocus>
+					<br>										
+					<label for="inputNickName">NICKNAME</label>
+					<input type="nickName" value="{{ last_username }}" name="nickName" id="inputNickname" class="form-control mt-[50px] my-[10px]" autocomplete="nickName" required autofocus>
+					<br> #}
+
+
+				<label for="inputEmail">EMAIL</label>
+				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mt-[60px] my-[10px]" autocomplete="email" required autofocus>
+				<br>
+
+
+				<label for="inputPassword">PASSWORD</label>
+				<input type="password" name="password" id="inputPassword" class="form-control my-[10px]" autocomplete="current-password" required>
+
+				<br>
+
+
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+				<button class="mx-[130px] btn btn-lg btn-primary my-[10px]" type="submit">
+					Sign in
+				</button>
+
+				<div class="mt-[60px] flex justify-center">YOU ARE NOT REGISTERED?</div>
+				<a class="flex justify-center" href="{{ path('app_register') }}">
+					REGISTER</a>
+
+			</div>
+
+
+		</div>
+
+	</form>
 {% endblock %}
