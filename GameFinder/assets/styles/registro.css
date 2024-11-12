@@ -23,8 +23,8 @@
     width: 20em;
     padding: 2em;
     border-radius: 10px;
-    background-color: rgba(240, 248, 255, 0.336);
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+   /*  background-color: rgba(240, 248, 255, 0.336);
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5); */
 }
 input[type="password"], input[type="email"], input[type="text"] {
     width: 100%;
