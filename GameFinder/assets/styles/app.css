@@ -4,11 +4,24 @@
 
 
 body {
-background: rgb(34, 34, 34);
-    background: linear-gradient(210deg, rgba(34, 34, 34, 1) 30%, rgba(68, 68, 68, 1) 50%, rgba(149, 149, 149, 1) 80%);
+    background-image: url('../image/fondo.jpg'); /* Ajusta la ruta si es necesario */
+    background-size: cover; /* Ajusta el tamaño de la imagen al gusto */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
+
+.fondo{
+    height: 100vh;
+    background: rgb(34, 34, 34);
+    background: linear-gradient(210deg, rgba(34, 34, 34, 0.760) 30%, rgba(68, 68, 68, 0.760) 50%,
+    rgba(149, 149, 149, 0.760) 80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 #bgCenter{
     background: rgb(34, 34, 34);
-        background: linear-gradient(35deg, rgba(34, 34, 34, 1) 10%, rgba(68, 68, 68, 1) 65%, rgba(149, 149, 149, 1) 100%);
+    background: linear-gradient(35deg, rgba(34, 34, 34, 1) 10%, rgba(68, 68, 68, 1) 65%,
+    rgba(149, 149, 149, 1) 100%);
 }
