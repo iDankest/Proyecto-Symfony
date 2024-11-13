@@ -1,8 +1,13 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+{% endblock %}
 
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+<div class="fondo">
 	<form method="post">
 		{% if error %}
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -15,8 +20,8 @@
 				<a href="{{ path('app_logout') }}">Logout</a>
 			</div>
 		{% endif %}
-
-		<div id="bgCenter"class="mx-auto my-[200px] w-auto min-w-[500px] max-w-[600px] h-[500px] bg-gray-600 text-white rounded-3xl border-2 border-neutral-950">
+	
+		<div id="bgCenter"class="mx-auto {# my-[200px] #} w-auto min-w-[500px] max-w-[600px] h-[500px] bg-gray-600 text-white rounded-3xl border-2 border-neutral-950">
 
 
 			<div class="flex justify-center h-[100px]">LOGO</div>
@@ -63,5 +68,5 @@
 
 		</div>
 
-	</form>
+	</form></div>
 {% endblock %}
