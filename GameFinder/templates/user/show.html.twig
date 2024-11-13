@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User
+{% endblock %}
+{% block header %}{% endblock %}
+
+
+{% block body %}
+	<div id="bgCenter" class="mx-auto my-[200px] w-auto min-w-[500px] max-w-[600px] h-[500px] text-white
+						rounded-3xl border-2 border-neutral-950">
+
+		<p class="text-4xl flex justify-center my-[50px]">Profile</p>
+
+		<table class="table">
+			<tbody>
+				{#             <tr>
+				                <th>Id</th>
+				                <td>{{ user.id }}</td>
+				            </tr>
+				            <tr> #}
+				<th>Email</th>
+				<td>{{ user.email }}</td>
+			</tbody>
+		</tr>
+		{#             <tr>
+		                <th>Roles</th>
+		                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+		            </tr> #}
+		{#             <tr>
+		                <th>Password</th>
+		                <td>{{ user.password }}</td>
+		            </tr> #}
+	</tbody>
+</table>
+
+
+	<a class="flex justify-center" href="{{ path('app_home') }}">back home</a>
+    <br>
+
+	<a class="flex justify-center" href="{{ path('app_user_profile', {'id': user.id}) }}">edit</a>
+    <br>
+
+	<div class="flex justify-center">{{ include('user/_delete_form.html.twig') }}</div>
+</div>
+{% endblock %}

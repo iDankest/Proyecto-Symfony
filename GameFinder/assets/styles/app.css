@@ -4,7 +4,7 @@
 
 
 body {
-    background-image: url('../image/fondo.jpg'); /* Ajusta la ruta si es necesario */
+   /*  background-image: url('../image/fondo.jpg');  */
     background-size: cover; /* Ajusta el tamaño de la imagen al gusto */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
@@ -24,4 +24,13 @@ body {
     background: rgb(34, 34, 34);
     background: linear-gradient(35deg, rgba(34, 34, 34, 1) 10%, rgba(68, 68, 68, 1) 65%,
     rgba(149, 149, 149, 1) 100%);
+}
+
+.btn{
+color: rgb(255, 0, 0);
+font-size: medium;
+}
+
+#btn{
+    color: rgb(77, 253, 77);
 }

@@ -2,7 +2,7 @@
 
 {% block title %}Register
 {% endblock %}
-
+{% block header %}{% endblock %}
 {% block body %}
 <div class="fondo">
 	<div id="bgCenter" class="mx-auto my-[200px] w-auto min-w-[500px] max-w-[600px] h-[500px] text-white
@@ -30,7 +30,7 @@
 
 			{{ form_row(registrationForm.agreeTerms) }}
 
-			<button type="submit" class="btn">SUBMIT</button>
+			<button type="submit" id="btn">SUBMIT</button>
 			{{ form_end(registrationForm) }}
 		</div>
 
