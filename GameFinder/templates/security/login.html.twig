@@ -13,15 +13,15 @@
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 		{% endif %}
 
-		{% if app.user %}
+		{# {% if app.user %}
 			<div class="mb-3">
 				You are logged in as
 				{{ app.user.userIdentifier }},
 				<a href="{{ path('app_logout') }}">Logout</a>
 			</div>
-		{% endif %}
+		{% endif %} #}
 	
-		<div id="bgCenter"class="mx-auto {# my-[200px] #} w-auto min-w-[500px] max-w-[600px] h-[500px] bg-gray-600 text-white rounded-3xl border-2 border-neutral-950">
+		<div id="bgCenter"class="mx-auto w-auto min-w-[500px] max-w-[600px] h-[500px] bg-gray-600 text-white rounded-3xl border-2 border-neutral-950">
 
 
 			<div class="flex justify-center h-[100px]">LOGO</div>
@@ -32,7 +32,7 @@
 
 
 			<div
-				class="flex-col mx-[140px]">
+				class="flex-col mx-[140px] text-black">
 
 				{# 	<label for="inputName">NAME</label>
 					<input type="name" value="{{ last_username }}" name="name" id="inputName" class="form-control mt-[50px] my-[10px]" autocomplete="name" required autofocus>

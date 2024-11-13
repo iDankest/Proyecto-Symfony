@@ -4,7 +4,7 @@
 
 
 body {
-    background-image: url('../image/fondo.jpg'); /* Ajusta la ruta si es necesario */
+    background-image: url('../image/fondo.jpg');
     background-size: cover; /* Ajusta el tamaño de la imagen al gusto */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
