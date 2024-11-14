@@ -9,7 +9,7 @@
 
     <h1>Edit User</h1>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="text-black">{{ include('user/_form.html.twig', {'button_label':'Update'}) }}</div>
 
     <a href="{{ path('app_user_show',{'id': app.user.id}) }}">back to profile</a>
 

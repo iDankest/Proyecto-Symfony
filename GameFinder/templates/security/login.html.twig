@@ -6,9 +6,7 @@
 
 {% block body %}
 	<form method="post">
-		{% if error %}
-			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-		{% endif %}
+
 
 		{% if app.user %}
 			<div class="mb-3">
@@ -18,7 +16,7 @@
 			</div>
 		{% endif %}
 		<div class="fondo">
-		<div id="bgCenter"class="mx-auto my-[200px] w-auto min-w-[500px] max-w-[600px] h-[500px] bg-gray-600 text-white rounded-3xl border-2 border-neutral-950">
+		<div id="bgCenter"class="mx-auto my-[200px] w-auto min-w-[500px] max-w-[600px] h-[500px] bg-gray-600 text-white rounded-3xl border-1 border-neutral-950">
 
 
 			<div class="flex justify-center h-[100px]">LOGO</div>
@@ -38,25 +36,30 @@
 					<input type="nickName" value="{{ last_username }}" name="nickName" id="inputNickname" class="form-control mt-[50px] my-[10px]" autocomplete="nickName" required autofocus>
 					<br> #}
 
-
+				{% if error %}
+					<div class="alert alert-danger mt-4">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+				{% endif %}
+			
 				<label for="inputEmail">EMAIL</label>
-				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mt-[60px] my-[10px]" autocomplete="email" required autofocus>
+				<input type="email" value="{{ last_username }}" name="email" id="inputEmail"
+				class="form-control mt-[60px] my-[10px] text-black" autocomplete="email" required autofocus>
 				<br>
 
 
 				<label for="inputPassword">PASSWORD</label>
-				<input type="password" name="password" id="inputPassword" class="form-control my-[10px]" autocomplete="current-password" required>
+				<input type="password" name="password" id="inputPassword"
+				class="form-control my-[10px] text-black" autocomplete="current-password" required>
 
 				<br>
 
 
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-				<button class="mx-[130px] btn btn-lg btn-primary my-[10px]" type="submit">
+				<button id="btn" class="mx-[130px] btn-lg btn-primary my-[10px]" type="submit">
 					Sign in
 				</button>
 
-				<div class="mt-[60px] flex justify-center">YOU ARE NOT REGISTERED?</div>
+				<div class="mt-[20px] flex justify-center">YOU ARE NOT REGISTERED?</div>
 				<a class="flex justify-center" href="{{ path('app_register') }}">
 					REGISTER</a>
 

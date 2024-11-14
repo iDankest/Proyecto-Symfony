@@ -5,7 +5,7 @@
 {% block header %}{% endblock %}
 {% block body %}
 <div class="fondo">
-	<div id="bgCenter" class="mx-auto my-[200px] w-auto min-w-[500px] max-w-[600px] h-[500px] text-white
+	<div id="bgCenter" class="mx-auto my-[200px] w-auto min-w-[500px] max-w-[600px] h-[500px] text-gray-400
 			rounded-3xl border-2 border-neutral-950">
 
 
@@ -19,7 +19,7 @@
 
 			{{ form_start(registrationForm) }}
 			<br>
-
+	
 			{{ form_row(registrationForm.email) }}
 			<br>
 
@@ -27,7 +27,7 @@
             label: 'Password'
         }) }}
 			<br>
-
+		
 			{{ form_row(registrationForm.agreeTerms) }}
 
 			<button type="submit" id="btn">SUBMIT</button>

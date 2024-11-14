@@ -1,56 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>
-        {% block title %}Welcome!
-        {% endblock %}
-    </title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-    {% block stylesheets %}
-        {{ encore_entry_link_tags('app') }}
-        <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
-    {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+			<link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+		{% endblock %}
 
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-        {{ importmap() }}
-    {% endblock %}
-</head>
-<body>
-    {% block header %}
-        {% if app.user %}
-            <div class="mt-10 mx-10">
-                <div class="grid grid-cols-4 gap-4 justify-items-center max-w-[1650px] m-auto bg-gray-600
- text-white rounded-3xl py-[40px] text-2xl border border-neutral-950">
-                    <a href="{{ path('app_register') }}">Search for games</a>
-                    <a href="{{ path('app_user_show',{'id': app.user.id}) }}">Profile</a>
-                    <a href="{{ path('app_register') }}">Make a review</a>
-                    <a href="{{ path('app_logout') }}">Log out</a>
-                </div>
-            </div>
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+			{{ importmap() }}
+		{% endblock %}
+	</head>
+	<body>
+		{% block header %}
+			{% if app.user %}
+				<div class="mt-10 mx-10">
+					<div class="grid grid-cols-4 gap-4 justify-items-center max-w-[1650px] m-auto bg-gray-600
+							                     text-white rounded-3xl py-[40px] text-2xl border border-neutral-950">
+						<a href="{{ path('app_register') }}">Search for games</a>
+						<a href="{{ path('app_user_show',{'id': app.user.id}) }}">Profile</a>
+						<a href="{{ path('app_user_index') }}">Make a review</a>
+						<a href="{{ path('app_logout') }}">Log out</a>
+					</div>
+				</div>
 
-        {% else %}
-            <div class="pt-10">
-                <div class="grid grid-cols-2 gap-2 justify-items-center max-w-[1650px] m-auto bg-gray-600
-   text-white rounded-3xl py-[40px] text-2xl border border-neutral-950 min-w-[500px]">
-                    <a href="{{ path('app_register') }}">Search for games</a>
-                    <a href="{{ path('app_login') }}">Log in</a>
-                </div>
-            </div>
-        {% endif %}
+			{% else %}
+				<div class="pt-10">
+					<div class="grid grid-cols-2 gap-2 justify-items-center max-w-[1650px] m-auto bg-gray-600
+							                     text-white rounded-3xl py-[40px] text-2xl border border-neutral-950 min-w-[500px]">
+						<a href="{{ path('app_register') }}">Search for games</a>
+						<a href="{{ path('app_login') }}">Log in</a>
+					</div>
+				</div>
+			{% endif %}
 
-    {% endblock %}
-    {% block body %}
+		{% endblock %}
+		{% block body %}
 
-            <div class="flex justify-center mt-5 max-w-[260px] bg-gray-600 text-white rounded-full py-[20px] text-2xl border border-neutral-950 m-auto">TRENDING</div>
-            <div class="my-[130px]"></div>
-            <div class="flex justify-around">
-                <div class="w-[300px] h-[260px] bg-black "></div>
-                <div class="w-[300px] h-[260px] bg-black"></div>
+			<div class="flex justify-center mt-5 max-w-[260px] bg-gray-600 text-white rounded-full py-[20px] text-2xl border border-neutral-950 m-auto">TRENDING</div>
+			<div class="my-[130px]"></div>
+			<div
+				class="flex justify-around">
 
-            </div>
+				{#  <div class="w-[300px] h-[260px] bg-black ">{{game.photo}}</div>
+				                <div class="w-[300px] h-[260px] bg-black"></div> #}
 
-    {% endblock %}
-</body>
+				<div class="flex flex-wrap gap-28 justify-center">
+
+					{% for game in games %}
+						<div class="w-full sm:w-1/2 md:w-1/4">
+							<div style="background-image: url('{{ game.photo }}'); width: 500px; height: 260px; background-size: cover;"></div>
+							<p class="text-3xl text-center">{{ game.title }}</p>
+						</div>
+					{% endfor %}
+
+				</div>
+
+			</div>
+
+		{% endblock %}
+	</body>
 </html>
