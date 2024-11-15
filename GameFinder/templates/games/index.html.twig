@@ -3,43 +3,19 @@
 {% block title %}Games index{% endblock %}
 
 {% block body %}
-    <h1>Games index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Photo</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Release_date</th>
-                <th>Assessment</th>
-                <th>Genre_id</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for game in games %}
-            <tr>
-                <td>{{ game.id }}</td>
-                <td>{{ game.photo }}</td>
-                <td>{{ game.title }}</td>
-                <td>{{ game.description }}</td>
-                <td>{{ game.releaseDate ? game.releaseDate|date('Y-m-d') : '' }}</td>
-                <td>{{ game.assessment }}</td>
-                <td>{{ game.genreId }}</td>
-                <td>
-                    <a href="{{ path('app_games_show', {'id': game.id}) }}">show</a>
-                    <a href="{{ path('app_games_edit', {'id': game.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="flex flex-wrap gap-4 justify-center">
 
-    <a href="{{ path('app_games_new') }}">Create new</a>
+            {% for game in games %}
+                <div class="sm:w-1/2 md:w-1/4 mx-4">
+                    <div style="background-image: url('{{ game.photo }}'); width: 500px; height: 260px; background-size: cover; margin-bottom: 30px;"></div>
+                    <p class="text-3xl text-center">{{ game.title }}</p>
+                </div>
+            {% endfor %}
+
+        </div>
+
 {% endblock %}
+{# <a href="{{ path('app_games_new') }}">Create new</a>
+<a href="{{ path('app_games_show', {'id': game.id}) }}">show</a>
+<a href="{{ path('app_games_edit', {'id': game.id}) }}">edit</a> #}

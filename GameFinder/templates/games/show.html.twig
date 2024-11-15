@@ -39,7 +39,12 @@
 	</div>
 
 	<div class="ml-auto text-4xl font-thin">
-		<b>{{ game.assessment }}</b>
+		<b>{% if game.assessment == 0 %}
+			Not rated
+			{% else %}
+			{{ game.assessment }}
+			{% endif %}
+		</b>
 	</div>
 
 </div>
