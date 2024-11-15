@@ -13,11 +13,11 @@ class HomeController extends AbstractController
     public function index(GamesRepository $gamesRepository): Response
     {
         // Recuperar todos los juegos desde la base de datos
-        $games = $gamesRepository->findAll();
+        $firstThree = array_slice($gamesRepository->findAll(), 0, 3);
 
         // Pasar los juegos a la plantilla base
         return $this->render('base.html.twig', [
-            'games' => $games,
+            'games' => $firstThree,
         ]);
     }
 }

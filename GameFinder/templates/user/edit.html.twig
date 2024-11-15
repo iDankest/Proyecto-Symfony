@@ -5,13 +5,17 @@
 
 
 {% block body %}
+<div class="fondo">
 
+<div id="bgCenter" class="mx-auto my-[200px] w-auto min-w-[580px] max-w-[600px] h-[500px] bg-gray-600 text-white rounded-3xl border-1 border-neutral-950 ">
 
-    <h1>Edit User</h1>
+    <h1 class="text-center text-4xl ">Edit User</h1>
 
     <div class="text-black">{{ include('user/_form.html.twig', {'button_label':'Update'}) }}</div>
 
     <a href="{{ path('app_user_show',{'id': app.user.id}) }}">back to profile</a>
 
     {{ include('user/_delete_form.html.twig') }}
+</div>
+</div>
 {% endblock %}

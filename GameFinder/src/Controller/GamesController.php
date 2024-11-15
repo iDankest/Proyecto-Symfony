@@ -17,9 +17,23 @@ class GamesController extends AbstractController
     #[Route('/', name: 'app_games_index', methods: ['GET'])]
     public function index(GamesRepository $gamesRepository): Response
     {
-        
         return $this->render('games/index.html.twig', [
             'games' => $gamesRepository->findAll(),
+        ]);
+    }
+    
+    #[Route('/find/{search}', name: 'app_games_search', methods: ['GET'])]
+       public function search($search, GamesRepository $gamesRepository): Response
+    {
+             
+        $filtered = $gamesRepository->createQueryBuilder('game')
+            ->where('game.title LIKE :filter')
+            ->setParameter('filter', '%'.$search.'%')
+            ->getQuery()
+            ->getResult();
+
+        return $this->render('games/index.html.twig', [
+            'games' => $filtered,
         ]);
     }
 

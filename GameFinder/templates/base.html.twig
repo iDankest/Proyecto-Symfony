@@ -20,9 +20,11 @@
 	<body>
 		{% block header %}
 			{% if app.user %}
-				<div class="mt-10 mx-10 mb-20">
-					<div class="grid grid-cols-4 gap-4 justify-items-center max-w-[1650px] m-auto bg-gray-600
-						 text-white rounded-3xl py-[40px] text-2xl border border-neutral-950">
+
+				<div class="mt-5 mx-10 mb-10">
+					<div class="grid grid-cols-5 gap-4 justify-items-center max-w-[1650px] m-auto bg-gray-600
+																				 text-white rounded-3xl py-[40px] text-2xl border border-neutral-950">
+						<a href="{{ path('app_home') }}">"LOGO"</a>
 						<a href="{{ path('app_games_index') }}">Search for games</a>
 						<a href="{{ path('app_user_show',{'id': app.user.id}) }}">Profile</a>
 						<a href="{{ path('app_user_index') }}">Make a review</a>
@@ -31,9 +33,10 @@
 				</div>
 
 			{% else %}
-				<div class="pt-10 mb-20">
-					<div class="grid grid-cols-2 gap-2 justify-items-center max-w-[1650px] m-auto bg-gray-600
-						 text-white rounded-3xl py-[40px] text-2xl border border-neutral-950 min-w-[500px]">
+				<div class="pt-5 mb-10 ">
+					<div class="grid grid-cols-3 gap-2 justify-items-center max-w-[1650px] m-auto bg-gray-600
+																				 text-white rounded-3xl py-[40px] text-2xl border border-neutral-950 min-w-[500px]">
+						<a href="{{ path('app_home') }}">"LOGO"</a>
 						<a href="{{ path('app_games_index') }}">Search for games</a>
 						<a href="{{ path('app_login') }}">Log in</a>
 					</div>
@@ -44,18 +47,24 @@
 		{% block body %}
 
 			<div class="flex justify-center mt-5 max-w-[260px] bg-gray-600 text-white rounded-full py-[20px] text-2xl border border-neutral-950 m-auto my-[130px]">TRENDING</div>
-			<div class="flex justify-around">
+			<div
+				class="flex justify-around">
 
 				{#  <div class="w-[300px] h-[260px] bg-black ">{{game.photo}}</div>
-				   <div class="w-[300px] h-[260px] bg-black"></div> #}
+												   <div class="w-[300px] h-[260px] bg-black"></div> #}
 
-				<div class="flex flex-wrap gap-28 justify-center">
+				<div class="flex flex-wrap gap-8 justify-center">
 
 					{% for game in games %}
-						<div class="sm:w-1/2 md:w-1/4">
-							<div style="background-image: url('{{ game.photo }}'); width: 500px; height: 260px; background-size: cover; margin-bottom: 30px;"></div>
-							<p class="text-3xl text-center">{{ game.title }}</p>
-						</div>
+						
+							<div class="sm:w-1/2 md:w-1/4 mx-8">
+								<a href="{{ path('app_games_show', {'id': game.id}) }}">
+									<div style="background-image: url('{{ game.photo }}'); width: 500px; height: 260px; background-size: cover; margin-bottom: 30px;"></div>
+									<p class="text-3xl text-center">{{ game.title }}</p>
+								</a>
+							</div>
+						
+
 					{% endfor %}
 
 				</div>
