@@ -7,7 +7,8 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<div class="fondo">
+<div class="fondo"></div>
+<div class="contenido-form">
 	<form method="post">
 		{% if error %}
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -41,21 +42,20 @@
 					<input type="nickName" value="{{ last_username }}" name="nickName" id="inputNickname" class="form-control mt-[50px] my-[10px]" autocomplete="nickName" required autofocus>
 					<br> #}
 
+<br>
+				{# <label for="inputEmail">EMAIL</label> #}
+				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mt-[60px] my-[10px]" autocomplete="email" placeholder="Email" required autofocus>
+				<br><br>
 
-				<label for="inputEmail">EMAIL</label>
-				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mt-[60px] my-[10px]" autocomplete="email" required autofocus>
-				<br>
 
+				{# <label for="inputPassword">PASSWORD</label> #}
+				<input type="password" name="password" id="inputPassword" class="form-control my-[10px] p-[10px]" autocomplete="current-password" placeholder="Password" required>
 
-				<label for="inputPassword">PASSWORD</label>
-				<input type="password" name="password" id="inputPassword" class="form-control my-[10px]" autocomplete="current-password" required>
-
-				<br>
 
 
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-				<button class="mx-[130px] btn btn-lg btn-primary my-[10px]" type="submit">
+				<button class="mx-[130px] btn btn-lg btn-primary my-[10px] m-auto" type="submit">
 					Sign in
 				</button>
 

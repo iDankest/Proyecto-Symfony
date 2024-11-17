@@ -8,6 +8,7 @@ body {
     background-image: url('../image/fondo.jpg');
     background-size: cover; 
     background-repeat: no-repeat; 
+    height: 100vh;
     z-index: -1; 
 }
 
@@ -25,4 +26,22 @@ body {
     background: linear-gradient(35deg, rgba(34, 34, 34, 1) 10%, rgba(68, 68, 68, 1) 65%,
     rgba(149, 149, 149, 1) 100%);
 }
+#bgCenter input{
+    padding: 0.9em;
+    margin: 0 auto;
+    width: 100%;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
 
+.contenido-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: 1;
+}
