@@ -4,19 +4,20 @@
 
 
 body {
+    position: relative;
     background-image: url('../image/fondo.jpg');
-    background-size: cover; /* Ajusta el tamaño de la imagen al gusto */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    z-index: -1; 
 }
 
 .fondo{
-    height: 100vh;
+    position: fixed; 
+    width: 100%;  
+    height: 100%;  
     background: rgb(34, 34, 34);
-    background: linear-gradient(210deg, rgba(34, 34, 34, 0.760) 30%, rgba(68, 68, 68, 0.760) 50%,
-    rgba(149, 149, 149, 0.760) 80%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(210deg, rgba(34, 34, 34, 0.760) 30%, rgba(68, 68, 68, 0.760) 50%, rgba(149, 149, 149, 0.760) 80%);
+    z-index: -1;  
 }
 
 #bgCenter{
