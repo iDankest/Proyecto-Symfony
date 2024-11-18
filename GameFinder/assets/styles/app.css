@@ -3,16 +3,25 @@
 @tailwind utilities;
 
 
-body {
-      /* background-image: url('../image/fondo.jpg'); */  
-      background-size: cover; /* Ajusta el tamaño de la imagen al gusto */
-      background-repeat: no-repeat; /* Evita que la imagen se repita */
+/* body {
+      background-image: url('../image/fondo.jpg'); 
+      background-size: cover; 
+      background-repeat: no-repeat; 
     background: rgb(34, 34, 34);
         background: linear-gradient(210deg, rgba(34, 34, 34, 0.760) 30%, rgba(68, 68, 68, 0.760) 50%,
                 rgba(149, 149, 149, 0.760) 80%);
-    }
+    } */
     
-    .fondo{
+    body {
+    position: relative;
+    background-image: url('../image/fondo.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    height: 100%;
+    z-index: -1; 
+}
+
+/*     .fondo{
     height: 100vh;
     background: rgb(34, 34, 34);
     background: linear-gradient(210deg, rgba(34, 34, 34, 0.760) 30%, rgba(68, 68, 68, 0.760) 50%,
@@ -20,35 +29,49 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+} */
+
+.fondo {
+    position: fixed; 
+    width: 100%;  
+    height: 100%;  
+    background: rgb(34, 34, 34);
+    background: linear-gradient(210deg, rgba(34, 34, 34, 0.760) 30%, rgba(68, 68, 68, 0.760) 50%, rgba(149, 149, 149, 0.760) 80%);
+    z-index: -1;  
 }
 
-
-#bgCenter{
+#bgCenter {
     background: rgb(34, 34, 34);
     background: linear-gradient(35deg, rgba(34, 34, 34, 1) 10%, rgba(68, 68, 68, 1) 65%,
     rgba(149, 149, 149, 1) 100%);
+    padding: 48px;
+    padding-top: 10px;
 }
 
-.btn{
-color: rgb(255, 0, 0);
-font-size: medium;
+.btn {
+    color: rgb(255, 0, 0);
+    font-size: medium;
 }
 
-#btn{
+#btn {
     color: rgb(77, 253, 77);
 }
 
-.logo{
+.logo {
     width: 100px;
     height: 100px;
     background-image: url("../image/logo.png");
     background-size: cover;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px auto;
 }
-input{
+
+input {
     padding: 4px;
     border-radius: 5px;
     width: 90%;
 }
+
+.gameCard {
+    background-color: rgba(61, 61, 61, 0.747);
+}
+

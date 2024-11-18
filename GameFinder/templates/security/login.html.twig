@@ -20,7 +20,7 @@
 			<div id="bgCenter" class="mx-auto my-[200px] w-auto min-w-[580px] max-w-[580px] h-[500px] bg-gray-600 text-white rounded-3xl border-1 border-neutral-950">
 
 
-				<div class="my-4 logo "> </div>
+				<a href="{{ path('app_home') }}"><div class="my-8 logo" style="margin-top: 10px; margin-bottom: 10px;"></div></a>
 
 
 				<div class="flex justify-center text-xl">YOUR PERFECT GAME FINDER</div>
@@ -36,9 +36,9 @@
 					{% endif %}
 
 					
-					<input type="name" value="{{ last_username }}" name="name" id="inputName" class="block m-auto form-control mt-4" placeholder="Name" autocomplete="name" required autofocus>
+					<input type="name" value="{{ last_username }}" name="name" id="inputName" class=" text-black block m-auto form-control mt-4" placeholder="Name" autocomplete="name" required autofocus>
 
-					<input type="nickName" value="{{ last_username }}" name="nickName" id="inputNickname" class="block m-auto form-control mt-4 rounded-xl" placeholder="Nickname" autocomplete="nickName" required autofocus>
+					<input type="nickName" value="{{ last_username }}" name="nickName" id="inputNickname" class="text-black block m-auto form-control mt-4 " placeholder="Nickname" autocomplete="nickName" required autofocus>
 
 					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="block m-auto form-control mt-4 text-black" placeholder="Email" autocomplete="email" required autofocus>
 

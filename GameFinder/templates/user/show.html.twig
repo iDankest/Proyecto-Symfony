@@ -10,18 +10,31 @@
 		<div id="bgCenter" class="mx-auto my-[200px] w-auto min-w-[580px] max-w-[580px] h-[500px] bg-gray-600 text-white rounded-3xl border-1 border-neutral-950">
 
 
-			<p class="text-4xl flex justify-center my-[50px]">Profile</p>
+			<a href="{{ path('app_home') }}">
+				<div class="logo" style="margin-top: 10px; margin-bottom: 10px;"></div>
+			</a>
 
-			<div class="ml-10">Email:
-				{{ user.email }}</div>
+			<p class="text-3xl flex justify-center">Profile</p>
 
 
-			<a class="flex justify-center" href="{{ path('app_home') }}">back home</a>
+			<div class="ml-16 mt-10 text-2xl">
+				<p class="mb-5">Name:
+					{{ user.name }}</p>
+
+				<p class="mb-5">Nickname:
+					{{ user.nickName }}</p>
+
+				<p class="mb-7">Email:
+					{{ user.email }}</p>
+					<br>
+			</div>
+
+
+			<a class="flex justify-center text-xl" href="{{ path('app_user_profile', {'id': user.id}) }}">Edit</a>
 			<br>
 
-			<a class="flex justify-center" href="{{ path('app_user_profile', {'id': user.id}) }}">edit</a>
+			<a class="flex justify-center text-xl" href="{{ path('app_home') }}">Back home</a>
 			<br>
-
 		</div>
 	</div>
 {% endblock %}

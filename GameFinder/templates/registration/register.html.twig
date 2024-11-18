@@ -4,37 +4,43 @@
 {% endblock %}
 {% block header %}{% endblock %}
 {% block body %}
-<div class="fondo">
-	<div id="bgCenter" class="mx-auto my-[200px] w-auto min-w-[580px] max-w-[580px] h-[500px] bg-gray-600 text-white rounded-3xl border-1 border-neutral-950">
+	<div class="fondo">
+		<div id="bgCenter" class="mx-auto my-[200px] w-auto min-w-[580px] max-w-[580px] h-[500px] bg-gray-600 text-white rounded-3xl border-1 border-neutral-950">
+
+			<a href="{{ path('app_home') }}" class="flex justify-center logo"></a>
+
+			<h1 class="flex justify-center text-2xl">Register</h1>
+
+			<div class="flex-col mx-[100px] text-black">
+				{{ form_errors(registrationForm) }}
 
 
+				{{ form_start(registrationForm) }}
+				<br>
 
-		<div class="text-4xl flex justify-center my-[50px]">LOGO</div>
+				{{ form_row(registrationForm.name, {label: false, attr: { placeholder: 'Name'}} ) }}
+				<br>
 
-		<h1 class="flex justify-center">Register</h1>
-
-		<div class="flex-col mx-[140px]">
-			{{ form_errors(registrationForm) }}
+				{{ form_row(registrationForm.nick_name, {label: false, attr: { placeholder: 'Nickname'}} )}}
+				<br>
 
 
-			{{ form_start(registrationForm) }}
-			<br>
-	
-			{{ form_row(registrationForm.email) }}
-			<br>
+				{{ form_row(registrationForm.email, {label: false, attr: { placeholder: 'Email'}} ) }}
+				<br>
 
-			{{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+				{{ form_row(registrationForm.plainPassword, {
+            label: false,
+			attr: {placeholder: 'Password'}
         }) }}
-			<br>
-		
-			{{ form_row(registrationForm.agreeTerms) }}
+				<br>
 
-			<button type="submit" id="btn">SUBMIT</button>
-			{{ form_end(registrationForm) }}
+			<div class="text-white">{{ form_row(registrationForm.agreeTerms) }}</div>
+
+				<button type="submit" id="btn" class="text-center">SUBMIT</button>
+				{{ form_end(registrationForm) }}
+			</div>
+
 		</div>
-
 	</div>
-</div>
 
 {% endblock %}

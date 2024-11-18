@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<div class="fondo"></div>
 	<head>
 		<meta charset="UTF-8">
 		<title>
@@ -18,27 +19,28 @@
 		{% endblock %}
 	</head>
 	<body>
+	
 		{% block header %}
 			{% if app.user %}
 
-				<div class="mt-5 mx-10 mb-10">
+				<div class="pt-5 mx-10 mb-10">
 					<div class="grid grid-cols-5 gap-4 justify-items-center max-w-[1650px] m-auto bg-gray-600
-																				 text-white rounded-3xl py-[40px] text-2xl border border-neutral-950">
-						<a href="{{ path('app_home') }}">"LOGO"</a>
-						<a href="{{ path('app_games_index') }}">Search for games</a>
-						<a href="{{ path('app_user_show',{'id': app.user.id}) }}">Profile</a>
-						<a href="{{ path('app_user_index') }}">Make a review</a>
-						<a href="{{ path('app_logout') }}">Log out</a>
+						 text-white rounded-3xl py-[40px] text-2xl border border-neutral-950">
+						<a href="{{ path('app_home') }}" class="logo"></a>
+						<a href="{{ path('app_games_index') }}" class="flex items-center">Search for games</a>
+						<a href="{{ path('app_user_show',{'id': app.user.id}) }}" class="flex items-center">Profile</a>
+						<a href="{{ path('app_user_index') }}" class="flex items-center">Make a review</a>
+						<a href="{{ path('app_logout') }}" class="flex items-center">Log out</a>
 					</div>
 				</div>
 
 			{% else %}
 				<div class="pt-5 mb-10 ">
 					<div class="grid grid-cols-3 gap-2 justify-items-center max-w-[1650px] m-auto bg-gray-600
-																				 text-white rounded-3xl py-[40px] text-2xl border border-neutral-950 min-w-[500px]">
-						<a href="{{ path('app_home') }}">"LOGO"</a>
-						<a href="{{ path('app_games_index') }}">Search for games</a>
-						<a href="{{ path('app_login') }}">Log in</a>
+						 text-white rounded-3xl py-[40px] text-2xl border border-neutral-950 min-w-[500px]">
+						<a href="{{ path('app_home') }}" class="logo"></a>
+						<a href="{{ path('app_games_index') }}" class="flex items-center">Search for games</a>
+						<a href="{{ path('app_login') }}" class="flex items-center">Log in</a>
 					</div>
 				</div>
 			{% endif %}
@@ -56,13 +58,13 @@
 				<div class="flex flex-wrap gap-8 justify-center">
 
 					{% for game in games %}
-						
-							<div class="sm:w-1/2 md:w-1/4 mx-8">
-								<a href="{{ path('app_games_show', {'id': game.id}) }}">
-									<div style="background-image: url('{{ game.photo }}'); width: 500px; height: 260px; background-size: cover; margin-bottom: 30px;"></div>
-									<p class="text-3xl text-center">{{ game.title }}</p>
-								</a>
-							</div>
+
+					<div class="w-[530px] h-[280px] bg-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard text-white">
+				<a href="{{ path('app_games_show', {'id': game.id}) }}">
+						<div class="w-full h-4/5 mb-4" style="background-image: url('{{ game.photo }}'); background-size: cover;"></div>
+						<p class="text-2xl text-center">{{ game.title }}</p>
+				</a>
+					</div>
 						
 
 					{% endfor %}
