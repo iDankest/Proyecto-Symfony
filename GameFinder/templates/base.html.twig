@@ -23,24 +23,25 @@
 		{% block header %}
 			{% if app.user %}
 
-				<div class="pt-5 mx-10 mb-10">
-					<div class="grid grid-cols-5 gap-4 justify-items-center max-w-[1650px] m-auto bg-gray-600
-						 text-white rounded-3xl py-[40px] text-2xl border border-neutral-950">
+				<div class="pt-5 mx-10 mb-10 ">
+					<div class="grid grid-cols-5 gap-4 justify-items-center max-w-[1650px] m-auto bg-black bg-opacity-60
+						 text-white rounded-3xl py-[10px] border border-neutral-950">
 						<a href="{{ path('app_home') }}" class="logo"></a>
-						<a href="{{ path('app_games_index') }}" class="flex items-center">Search for games</a>
-						<a href="{{ path('app_user_show',{'id': app.user.id}) }}" class="flex items-center">Profile</a>
-						<a href="{{ path('app_user_index') }}" class="flex items-center">Make a review</a>
-						<a href="{{ path('app_logout') }}" class="flex items-center">Log out</a>
+						<a href="{{ path('app_games_index') }}" class="hover flex items-center text-3xl">Search for games</a>
+						<a href="{{ path('app_user_show',{'id': app.user.id}) }}" class="hover flex items-center text-3xl">Profile</a>
+						<a href="{{ path('app_user_index') }}" class="hover flex items-center text-3xl">Make a review</a>
+						<a href="{{ path('app_logout') }}" class="hover flex items-center text-3xl">Log out</a>
+
 					</div>
 				</div>
 
 			{% else %}
 				<div class="pt-5 mb-10 ">
-					<div class="grid grid-cols-3 gap-2 justify-items-center max-w-[1650px] m-auto bg-gray-600
-						 text-white rounded-3xl py-[40px] text-2xl border border-neutral-950 min-w-[500px]">
+					<div class="grid grid-cols-3 gap-2 justify-items-center max-w-[1650px] m-auto bg-black bg-opacity-60
+						 text-white rounded-3xl py-[10px] text-2xl border border-neutral-950 min-w-[500px]">
 						<a href="{{ path('app_home') }}" class="logo"></a>
-						<a href="{{ path('app_games_index') }}" class="flex items-center">Search for games</a>
-						<a href="{{ path('app_login') }}" class="flex items-center">Log in</a>
+						<a href="{{ path('app_games_index') }}" class="hover flex items-center text-3xl">Search for games</a>
+						<a href="{{ path('app_login') }}" class="hover flex items-center text-3xl">Log in</a>
 					</div>
 				</div>
 			{% endif %}
@@ -48,7 +49,7 @@
 		{% endblock %}
 		{% block body %}
 
-			<div class="flex justify-center mt-5 max-w-[260px] bg-gray-600 text-white rounded-full py-[20px] text-2xl border border-neutral-950 m-auto my-[130px]">TRENDING</div>
+			<div class="flex justify-center mt-10 max-w-[300px] bg-black bg-opacity-60 text-white rounded-full py-[30px] text-4xl border border-neutral-950 m-auto my-[130px]">Trending</div>
 			<div
 				class="flex justify-around">
 

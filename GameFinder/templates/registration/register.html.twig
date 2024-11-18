@@ -11,21 +11,24 @@
 
 			<h1 class="flex justify-center text-2xl">Register</h1>
 
-			<div class="flex-col mx-[100px] text-black">
+			<div class="flex-col mx-[100px] ml-32 text-black">
 				{{ form_errors(registrationForm) }}
 
 
 				{{ form_start(registrationForm) }}
 				<br>
 
-				{{ form_row(registrationForm.name, {label: false, attr: { placeholder: 'Name'}} ) }}
+				{{ form_row(registrationForm.name, {label: false, attr: { placeholder: 'Name'}}
+				) }}
 				<br>
 
-				{{ form_row(registrationForm.nick_name, {label: false, attr: { placeholder: 'Nickname'}} )}}
+				{{ form_row(registrationForm.nick_name, {label: false, attr: { placeholder: 'Nickname'}}
+				)}}
 				<br>
 
 
-				{{ form_row(registrationForm.email, {label: false, attr: { placeholder: 'Email'}} ) }}
+				{{ form_row(registrationForm.email, {label: false, attr: { placeholder: 'Email'}}
+				) }}
 				<br>
 
 				{{ form_row(registrationForm.plainPassword, {
@@ -34,9 +37,9 @@
         }) }}
 				<br>
 
-			<div class="text-white">{{ form_row(registrationForm.agreeTerms) }}</div>
+				<div class="text-white ">{{ form_row(registrationForm.agreeTerms) }}</div>
 
-				<button type="submit" id="btn" class="text-center">SUBMIT</button>
+				<button type="submit" id="btn" class="text-center text-xl">SUBMIT</button>
 				{{ form_end(registrationForm) }}
 			</div>
 

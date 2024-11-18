@@ -23,26 +23,21 @@
 				<a href="{{ path('app_home') }}"><div class="my-8 logo" style="margin-top: 10px; margin-bottom: 10px;"></div></a>
 
 
-				<div class="flex justify-center text-xl">YOUR PERFECT GAME FINDER</div>
+				<div class="flex justify-center text-2xl">YOUR PERFECT GAME FINDER</div>
 				
-				<div class="flex justify-center">LOG IN</div>
+				<div class="flex justify-center text-xl mt-[10px]">LOG IN</div>
 
 
 				<div
-					class="flex-col mx-[140px]">
+					class="flex-col mx-[90px]">
 
 					{% if error %}
 						<div class="alert alert-danger mt-4">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 					{% endif %}
 
-					
-					<input type="name" value="{{ last_username }}" name="name" id="inputName" class=" text-black block m-auto form-control mt-4" placeholder="Name" autocomplete="name" required autofocus>
+					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="block m-auto form-control mt-8 text-black" placeholder="Email" autocomplete="email" required autofocus>
 
-					<input type="nickName" value="{{ last_username }}" name="nickName" id="inputNickname" class="text-black block m-auto form-control mt-4 " placeholder="Nickname" autocomplete="nickName" required autofocus>
-
-					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="block m-auto form-control mt-4 text-black" placeholder="Email" autocomplete="email" required autofocus>
-
-					<input type="password" name="password" id="inputPassword" class="block m-auto form-control mt-4 text-black" placeholder="Password" autocomplete="current-password" required>
+					<input type="password" name="password" id="inputPassword" class="block m-auto form-control mt-8 text-black" placeholder="Password" autocomplete="current-password" required>
 
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br>
 

@@ -63,6 +63,7 @@
     background-image: url("../image/logo.png");
     background-size: cover;
     margin: 10px auto;
+    border-radius: 50%/50%;
 }
 
 input {
@@ -75,3 +76,14 @@ input {
     background-color: rgba(61, 61, 61, 0.747);
 }
 
+
+.logo:hover{
+    rotate: 360deg;
+    transition-duration: 1.5s;
+    box-shadow: 1px 1px 10px 10px rgb(146, 146, 146);
+}
+
+.hover:hover{
+transform: scale(1.1);
+text-shadow: 5px 5px 40px #ffffff;
+}
