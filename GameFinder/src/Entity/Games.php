@@ -5,10 +5,17 @@ namespace App\Entity;
 use App\Repository\GamesRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping\JoinTable;
+
 
 #[ORM\Entity(repositoryClass: GamesRepository::class)]
 class Games
 {
+    #[ManyToMany(targetEntity: "Genre", inversedBy: "games")]
+    #[JoinTable(name: "games_genres")]
+    private $genres;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -29,8 +36,6 @@ class Games
     #[ORM\Column]
     private ?float $assessment = null;
 
-    #[ORM\Column(type: 'integer', nullable: true)]
-    private ?int $genre_id = null;
 
     public function getId(): ?int
     {
@@ -100,18 +105,6 @@ class Games
     public function setAssessment(float $assessment): static
     {
         $this->assessment = $assessment;
-
-        return $this;
-    }
-
-    public function getGenreId(): ?int
-    {
-        return $this->genre_id;
-    }
-
-    public function setGenreId(int $genre_id): static
-    {
-        $this->genre_id = $genre_id;
 
         return $this;
     }
