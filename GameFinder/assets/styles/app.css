@@ -37,3 +37,18 @@ font-size: medium;
 #btn{
     color: rgb(77, 253, 77);
 }
+
+.logo{
+    width: 100px;
+    height: 100px;
+    background-image: url("../image/logo.png");
+    background-size: cover;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+input{
+    padding: 4px;
+    border-radius: 5px;
+    width: 90%;
+}

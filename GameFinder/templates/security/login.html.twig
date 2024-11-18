@@ -20,41 +20,33 @@
 			<div id="bgCenter" class="mx-auto my-[200px] w-auto min-w-[580px] max-w-[580px] h-[500px] bg-gray-600 text-white rounded-3xl border-1 border-neutral-950">
 
 
-				<div class="flex justify-center h-[100px]">LOGO</div>
+				<div class="my-4 logo "> </div>
 
-				<div class="flex justify-center text-2xl">YOUR PERFECT GAME FINDER</div>
-				<br>
+
+				<div class="flex justify-center text-xl">YOUR PERFECT GAME FINDER</div>
+				
 				<div class="flex justify-center">LOG IN</div>
 
 
 				<div
 					class="flex-col mx-[140px]">
 
-					{# 	<label for="inputName">NAME</label>
-															<input type="name" value="{{ last_username }}" name="name" id="inputName" class="form-control mt-[50px] my-[10px]" autocomplete="name" required autofocus>
-															<br>										
-															<label for="inputNickName">NICKNAME</label>
-															<input type="nickName" value="{{ last_username }}" name="nickName" id="inputNickname" class="form-control mt-[50px] my-[10px]" autocomplete="nickName" required autofocus>
-															<br> #}
-
 					{% if error %}
 						<div class="alert alert-danger mt-4">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 					{% endif %}
 
-					<label for="inputEmail">EMAIL</label>
-					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mt-[60px] my-[10px] text-black" autocomplete="email" required autofocus>
-					<br>
+					
+					<input type="name" value="{{ last_username }}" name="name" id="inputName" class="block m-auto form-control mt-4" placeholder="Name" autocomplete="name" required autofocus>
 
+					<input type="nickName" value="{{ last_username }}" name="nickName" id="inputNickname" class="block m-auto form-control mt-4 rounded-xl" placeholder="Nickname" autocomplete="nickName" required autofocus>
 
-					<label for="inputPassword">PASSWORD</label>
-					<input type="password" name="password" id="inputPassword" class="form-control my-[10px] text-black" autocomplete="current-password" required>
+					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="block m-auto form-control mt-4 text-black" placeholder="Email" autocomplete="email" required autofocus>
 
-					<br>
+					<input type="password" name="password" id="inputPassword" class="block m-auto form-control mt-4 text-black" placeholder="Password" autocomplete="current-password" required>
 
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br>
 
-					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-					<button id="btn" class=" btn-lg btn-primary my-[10px]" type="submit">
+					<button id="btn" class="block m-auto btn-lg btn-primary text-xl" type="submit">
 						Sign in
 					</button>
 
@@ -63,9 +55,9 @@
 						REGISTER</a>
 
 				</div>
-
-
+				
 			</div>
+
 		</div>
 
 	</form>
