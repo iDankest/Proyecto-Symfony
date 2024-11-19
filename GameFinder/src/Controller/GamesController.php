@@ -10,15 +10,61 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\GameSearchType;
 
 #[Route('/games')]
 class GamesController extends AbstractController
 {
-    #[Route('/', name: 'app_games_index', methods: ['GET'])]
-    public function index(GamesRepository $gamesRepository): Response
+    #[Route('/', name: 'app_games_index', methods: ['GET', 'POST'])]
+    public function index(Request $request, GamesRepository $gamesRepository, EntityManagerInterface $entityManager): Response
     {
+        $form = $this->createForm(GameSearchType::class);
+        $form->handleRequest($request);
+
+        $games = $gamesRepository->findAll();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $genre = $form->get('genre')->getData();
+            $games = $entityManager->getRepository(Games::class)
+                ->createQueryBuilder('g')
+                ->join('g.genres', 'genre')
+                ->where('genre.id = :genreId')
+                ->setParameter('genreId', $genre->getId())
+                ->getQuery()
+                ->getResult();
+        }
+
         return $this->render('games/index.html.twig', [
-            'games' => $gamesRepository->findAll(),
+            'form' => $form->createView(),
+            'games' => $games,
+        ]);
+
+        //return $this->render('games/index.html.twig', [
+         //   'games' => $gamesRepository->findAll(),
+       // ]);
+    }
+
+    #[Route('/search', name: 'game_search')]
+    public function searchByGenre(Request $request, GamesRepository $gamesRepository, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(GameSearchType::class);
+        $form->handleRequest($request);
+
+        $games = $gamesRepository->findAll();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $genre = $form->get('genre')->getData();
+            $games = $entityManager->getRepository(Games::class)
+                ->createQueryBuilder('g')
+                ->join('g.genres', 'genre')
+                ->where('genre.id = :genreId')
+                ->setParameter('genreId', $genre->getId())
+                ->getQuery()
+                ->getResult();
+        }
+
+        return $this->render('games/search.html.twig', [
+            'form' => $form->createView(),
+            'games' => $games,
         ]);
     }
     

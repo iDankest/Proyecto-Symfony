@@ -7,6 +7,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\JoinTable;
+use Doctrine\Common\Collections\ArrayCollection;
 
 
 #[ORM\Entity(repositoryClass: GamesRepository::class)]
@@ -107,5 +108,10 @@ class Games
         $this->assessment = $assessment;
 
         return $this;
+    }
+
+    public function __construct()
+    {
+        $this->genres = new ArrayCollection();
     }
 }

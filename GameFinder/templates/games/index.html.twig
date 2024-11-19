@@ -1,38 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Games index
+{% block title %}Games searcher
 {% endblock %}
 
 {% block body %}
 
 	{# Contenedor #}
-	<div class="flex flex-col items-center justify-center">
-		<div class="flex">
-			<input id="search" type="text" placeholder="Busca aqui tu juego" class="p-2 border border-gray-600 mb-4">
 
-			<script>
-				function handleChange() {
-                let search = document.getElementById('search')
-                let url = ''
-                if(search.value.trim() !== ''){
-                    console.log(search.value)
-                    url = "{{ path('app_games_search', {'search': 'search'}) }}".replace('search', search.value);
-                }else {
-                    url = "{{ path('app_games_index') }}"
-                }
-                window.location.href = url
-                }
-			</script>
-			<button id='btn-search' onclick="handleChange()" class="mx-4 hover:scale-105 hover:text-black text-white border border-white px-4 mb-4 rounded-lg">Buscar</button>
+	<div class="inline-block-container">
+
+		{{ form_start(form) }}
+		<div class="item">
+		{{ form_widget(form) }}
 		</div>
+		<div class="item">
+			<button class="search-btn item text-white  border border-gray-400 text-xl" type="submit">Buscar</button>
+		</div>
+		{{ form_end(form) }}
+
+	</div>
+
+
+	<div class="flex flex-col items-center justify-center">
+
 		<div class="flex flex-wrap gap-6 justify-center">
 			{% for game in games %}
-					<div class="w-[530px] h-[280px] text-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard">
-				<a href="{{ path('app_games_show', {'id': game.id}) }}">
+				<div class="w-[530px] h-[280px] text-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard">
+					<a href="{{ path('app_games_show', {'id': game.id}) }}">
 						<div class="w-full h-4/5 mb-4" style="background-image: url('{{ game.photo }}'); background-size: cover;"></div>
 						<p class="text-2xl text-center">{{ game.title }}</p>
-				</a>
-					</div>
+					</a>
+				</div>
 			{% endfor %}
 		</div>
 	</div>
@@ -41,3 +39,21 @@
 {# <a href="{{ path('app_games_new') }}">Create new</a>
 <a href="{{ path('app_games_show', {'id': game.id}) }}">show</a>
 <a href="{{ path('app_games_edit', {'id': game.id}) }}">edit</a> #}
+
+
+{# <input id="search" type="text" placeholder="Busca aqui tu juego" class="p-2 border border-gray-600 mb-4">
+
+<script>
+	function handleChange() {
+let search = document.getElementById('search')
+let url = ''
+if (search.value.trim() !== '') {
+console.log(search.value)
+url = "{{ path('app_games_search', {'search': 'search'}) }}".replace('search', search.value);
+} else {
+url = "{{ path('app_games_index') }}"
+}
+window.location.href = url
+}
+</script>
+<button id='btn-search' onclick="handleChange()" class="mx-4 hover:scale-105 hover:text-black text-white border border-white px-4 mb-4 rounded-lg">Buscar</button> #}

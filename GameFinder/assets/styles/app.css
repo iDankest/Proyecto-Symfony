@@ -87,3 +87,38 @@ input {
 transform: scale(1.1);
 text-shadow: 5px 5px 40px #ffffff;
 }
+
+.searcher{
+background-color: rgba(61, 61, 61, 0.747);
+color: white;
+padding: 10px;
+font-size: 20px;
+border-color: rgb(156, 163, 175);
+border-width: 1px
+}
+
+.searcher:hover{
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.616);
+}
+
+.search-btn{
+    padding: 10px;
+   padding-left: 20px;
+   padding-right: 20px;
+}
+
+.search-btn:hover {
+transform: scale(1.1);
+background-color: rgba(0, 0, 0, 0.616);
+}
+
+.inline-block-container{
+text-align: center;
+}
+
+.item{
+    display: inline-block; /* Makes items inline */
+    margin: 0 10px;
+   margin-bottom: 20px;
+}

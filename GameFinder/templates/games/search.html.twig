@@ -1,0 +1,20 @@
+{# {% extends 'base.html.twig' %}
+
+{% block body %}
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+<button type="submit">Buscar</button>
+{{ form_end(form) }}
+
+{% if games is not empty %}
+	<h2>Resultados:</h2>
+	<ul>
+		{% for game in games %}
+			<li>{{ game.title }}</li>
+		{% endfor %}
+	</ul>
+{% endif %}
+
+{% endblock %} #}
+
