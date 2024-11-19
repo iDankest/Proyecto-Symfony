@@ -12,9 +12,20 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
+use App\Service\BackgroundImageService;
+
 
 class RegistrationController extends AbstractController
 {
+    private $backgroundImageService;
+    private $randomImage;
+
+    public function __construct(BackgroundImageService $backgroundImageService)
+    {
+        $this->backgroundImageService = $backgroundImageService;
+        $this->randomImage = $this->backgroundImageService->getRandomImage();
+    }
+    
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, AppAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
@@ -44,6 +55,8 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'backgroundImage' => $this->randomImage,
+
         ]);
     }
 }

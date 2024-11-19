@@ -6,9 +6,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use App\Service\BackgroundImageService;
+
 
 class SecurityController extends AbstractController
 {
+    private $backgroundImageService;
+    private $randomImage;
+
+    public function __construct(BackgroundImageService $backgroundImageService)
+    {
+        $this->backgroundImageService = $backgroundImageService;
+        $this->randomImage = $this->backgroundImageService->getRandomImage();
+    }
     #[Route(path: '/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
@@ -21,7 +31,7 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error, 'backgroundImage' => $this->randomImage,]);
     }
 
     #[Route(path: '/logout', name: 'app_logout')]

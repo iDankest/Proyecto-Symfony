@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<div class="fondo"></div>
+	<div class="fondo"></div>
 	<head>
 		<meta charset="UTF-8">
 		<title>
@@ -19,7 +19,27 @@
 		{% endblock %}
 	</head>
 	<body>
-	
+		<style>
+			body {
+				position: relative;
+				background-image: url('{{ asset(backgroundImage) }}');
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				height: 100%;
+				z-index: -1;
+			}
+			.fondo {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				background: rgb(34, 34, 34);
+				background: linear-gradient(210deg, rgba(34, 34, 34, 0.600) 30%, rgba(68, 68, 68, 0.600) 50%, rgba(149, 149, 149, 0.600) 80%);
+				z-index: -1;
+			}
+		</style>
+
 		{% block header %}
 			{% if app.user %}
 
@@ -53,19 +73,19 @@
 				class="flex justify-around">
 
 				{#  <div class="w-[300px] h-[260px] bg-black ">{{game.photo}}</div>
-												   <div class="w-[300px] h-[260px] bg-black"></div> #}
+																   <div class="w-[300px] h-[260px] bg-black"></div> #}
 
 				<div class="flex flex-wrap gap-8 justify-center">
 
 					{% for game in games %}
 
-					<div class="w-[530px] h-[280px] bg-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard text-white">
-				<a href="{{ path('app_games_show', {'id': game.id}) }}">
-						<div class="w-full h-4/5 mb-4" style="background-image: url('{{ game.photo }}'); background-size: cover;"></div>
-						<p class="text-2xl text-center">{{ game.title }}</p>
-				</a>
-					</div>
-						
+						<div class="w-[530px] h-[280px] bg-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard text-white">
+							<a href="{{ path('app_games_show', {'id': game.id}) }}">
+								<div class="w-full h-4/5 mb-4" style="background-image: url('{{ game.photo }}'); background-size: cover;"></div>
+								<p class="text-2xl text-center">{{ game.title }}</p>
+							</a>
+						</div>
+
 
 					{% endfor %}
 

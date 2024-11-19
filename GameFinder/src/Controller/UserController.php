@@ -10,15 +10,27 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\BackgroundImageService;
 
 #[Route('/user')]
 class UserController extends AbstractController
 {
+    private $backgroundImageService;
+    private $randomImage;
+
+    public function __construct(BackgroundImageService $backgroundImageService)
+    {
+        $this->backgroundImageService = $backgroundImageService;
+        $this->randomImage = $this->backgroundImageService->getRandomImage();
+    }
+
     #[Route('/', name: 'app_user_index', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
+            'backgroundImage' => $this->randomImage,
+
         ]);
     }
 
@@ -39,6 +51,8 @@ class UserController extends AbstractController
         return $this->render('user/new.html.twig', [
             'user' => $user,
             'form' => $form,
+            'backgroundImage' => $this->randomImage,
+
         ]);
     }
 
@@ -48,6 +62,8 @@ class UserController extends AbstractController
     {
         return $this->render('user/show.html.twig', [
             'user' => $user,
+            'backgroundImage' => $this->randomImage,
+
         ]);
     }
 
@@ -66,6 +82,8 @@ class UserController extends AbstractController
         return $this->render('user/edit.html.twig', [
             'user' => $user,
             'form' => $form,
+            'backgroundImage' => $this->randomImage,
+
         ]);
     }
 

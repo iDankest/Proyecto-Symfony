@@ -11,10 +11,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\GameSearchType;
+use App\Service\BackgroundImageService;
+
 
 #[Route('/games')]
 class GamesController extends AbstractController
 {
+    private $backgroundImageService;
+    private $randomImage;
+
+    public function __construct(BackgroundImageService $backgroundImageService)
+    {
+        $this->backgroundImageService = $backgroundImageService;
+        $this->randomImage = $this->backgroundImageService->getRandomImage();
+    }
     #[Route('/', name: 'app_games_index', methods: ['GET', 'POST'])]
     public function index(Request $request, GamesRepository $gamesRepository, EntityManagerInterface $entityManager): Response
     {
@@ -37,6 +47,7 @@ class GamesController extends AbstractController
         return $this->render('games/index.html.twig', [
             'form' => $form->createView(),
             'games' => $games,
+            'backgroundImage' => $this->randomImage,
         ]);
 
         //return $this->render('games/index.html.twig', [
@@ -65,6 +76,7 @@ class GamesController extends AbstractController
         return $this->render('games/search.html.twig', [
             'form' => $form->createView(),
             'games' => $games,
+            'backgroundImage' => $this->randomImage,
         ]);
     }
     
@@ -80,6 +92,7 @@ class GamesController extends AbstractController
 
         return $this->render('games/index.html.twig', [
             'games' => $filtered,
+            'backgroundImage' => $this->randomImage,
         ]);
     }
 
@@ -100,6 +113,7 @@ class GamesController extends AbstractController
         return $this->render('games/new.html.twig', [
             'game' => $game,
             'form' => $form,
+            'backgroundImage' => $this->randomImage,
         ]);
     }
 
@@ -108,6 +122,7 @@ class GamesController extends AbstractController
     {
         return $this->render('games/show.html.twig', [
             'game' => $game,
+            'backgroundImage' => $this->randomImage,
         ]);
     }
 
@@ -126,6 +141,7 @@ class GamesController extends AbstractController
         return $this->render('games/edit.html.twig', [
             'game' => $game,
             'form' => $form,
+            'backgroundImage' => $this->randomImage,
         ]);
     }
 
