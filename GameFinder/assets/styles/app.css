@@ -84,7 +84,7 @@ input {
 .item {
     display: inline-block;
     margin: 0 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .edit {
@@ -108,10 +108,34 @@ input {
     border-width: 1px;
     border-radius: 10px;
     /* background-color: rgba(0, 0, 0, 0.616); */
-    box-shadow: 1px 1px 10px 10px rgba(146, 146, 146);
+    box-shadow: 1px 1px 10px 10px rgb(77, 253, 77);
 }
 
 .about {
     padding: 20px;
     border-radius: 15px;
+}
+
+/*ESTRELLITA*/
+
+
+/* Tamaño y estilo de la estrella */
+.favorite-btn i {
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.favorite-btn:hover i {
+    transform: scale(1.1);
+}
+
+/* Estilos adicionales para el botón */
+.favorite-btn {
+    border: none;
+    background: none;
+}
+
+.empty-star{
+background-image: "/home/reboot-student/code/labs/Proyecto-Symfony/GameFinder/assets/image/Screenshot from 2024-11-20 15-34-24.png";
 }

@@ -36,8 +36,12 @@
 
     {# Contenedor de juegos filtrados #}
 	
-    <div class="flex flex-col items-center justify-center mt-8">
-        <h2 class="text-3xl text-white mb-4">Juegos Encontrados</h2>
+    <div class="flex flex-col items-center justify-center ">
+
+<div class="flex justify-center items-center h-[70px] px-10 max-w-[550px] mb-4 bg-black bg-opacity-70 text-white rounded-3xl border border-neutral-950">
+        <h2 class="text-3xl text-white ">Juegos Encontrados</h2>
+</div>
+
         <div class="flex flex-wrap gap-6 justify-center">
             {% for game in games %}
                 <div class="w-[530px] h-[300px] text-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard">

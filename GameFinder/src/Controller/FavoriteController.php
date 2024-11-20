@@ -19,6 +19,8 @@ class FavoriteController extends AbstractController
     public function toggleFavorite(Request $request, Games $game, EntityManagerInterface $em, $route): RedirectResponse
     {
         $user = $this->getUser();
+
+        
         // Verificar si el usuario ya tiene el juego como favorito
         $favorite = $em->getRepository(Favorite::class)->findOneBy(['user' => $user, 'game' => $game]);
 

@@ -48,8 +48,8 @@
 						 text-white rounded-3xl border border-neutral-950">
 						<a href="{{ path('app_home') }}" class="logo"></a>
 						<a href="{{ path('app_games_index') }}" class="hover flex items-center text-3xl h-[114px]">Search for games</a>
-						<a href="{{ path('game_search',{'id': app.user.id}) }}" class="hover flex items-center text-3xl h-[114px]">Favorite games</a>
 						<a href="{{ path('app_user_show',{'id': app.user.id}) }}" class="hover flex items-center text-3xl h-[114px]">Profile</a>
+						<a href="{{ path('game_search',{'id': app.user.id}) }}" class="hover flex items-center text-3xl h-[114px]">Favorite games</a>
 						<a href="{{ path('app_logout') }}" class="hover flex items-center text-3xl h-[114px]">Log out</a>
 
 					</div>
