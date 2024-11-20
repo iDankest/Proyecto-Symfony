@@ -1,40 +1,70 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Games searcher
-{% endblock %}
+{% block title %}Games searcher{% endblock %}
 
 {% block body %}
+    {# Contenedor de formulario de búsqueda #}
+    <div class="inline-block-container">
+        {{ form_start(form) }}
+        <div class="item">
+            {{ form_widget(form) }}
+        </div>
+        <div class="item">
+            <button class="search-btn item text-white border border-gray-400 text-xl" type="submit">Buscar</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
 
-	{# Contenedor #}
+    {# Contenedor de juegos favoritos #}
+ {#    <div class="flex flex-col items-center justify-center mt-8">
+        <h2 class="text-3xl text-white mb-4">Tus Juegos Favoritos</h2>
+        {% if favoriteGames is not empty %}
+            <div class="flex flex-wrap gap-6 justify-center">
+                {% for game in favoriteGames %}
+                    <div class="w-[530px] h-[340px] text-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard">
+                        <a href="{{ path('app_games_show', {'id': game.id}) }}">
+                            <div class="w-full h-4/5 mb-4" style="background-image: url('{{ game.photo }}'); background-size: cover;"></div>
+                            <p class="text-2xl text-center">{{ game.title }}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-white">No tienes juegos favoritos.</p>
+        {% endif %}
+    </div> #}
 
-	<div class="inline-block-container">
+    {# Contenedor de juegos filtrados #}
+	
+    <div class="flex flex-col items-center justify-center mt-8">
+        <h2 class="text-3xl text-white mb-4">Juegos Encontrados</h2>
+        <div class="flex flex-wrap gap-6 justify-center">
+            {% for game in games %}
+                <div class="w-[530px] h-[300px] text-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard">
+                    <a href="{{ path('app_games_show', {'id': game.id}) }}">
+                        <div class="w-full h-4/5 mb-4" style="background-image: url('{{ game.photo }}'); background-size: cover;">
+						    {% if app.user %}
+							<form action="{{ path('game_favorite', {'id': game.id, 'route':'games'}) }}" method="POST" style="display:inline;">
+                        	<button type="submit" class="favorite-btn text-white bg-red-500 hover:bg-red-700 rounded px-4 py-2 mt-4">
+                            {% if game in favoriteGames %}
+                                remove from favorites
+                            {% else %}
+                                add to favorites
+                            {% endif %}
+							{% endif %}
+                        	</button>
+                    		</form>
+						</div>
+                        	<p class="text-2xl text-center">{{ game.title }}</p>
+                    </a>
 
-		{{ form_start(form) }}
-		<div class="item">
-		{{ form_widget(form) }}
-		</div>
-		<div class="item">
-			<button class="search-btn item text-white  border border-gray-400 text-xl" type="submit">Buscar</button>
-		</div>
-		{{ form_end(form) }}
+                    {# Botón para agregar o eliminar favorito #}
 
-	</div>
-
-
-	<div class="flex flex-col items-center justify-center">
-
-		<div class="flex flex-wrap gap-6 justify-center">
-			{% for game in games %}
-				<div class="w-[530px] h-[300px] text-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard">
-					<a href="{{ path('app_games_show', {'id': game.id}) }}">
-						<div class="w-full h-4/5 mb-4" style="background-image: url('{{ game.photo }}'); background-size: cover;"></div>
-						<p class="text-2xl text-center">{{ game.title }}</p>
-					</a>
-				</div>
-			{% endfor %}
-		</div>
-	</div>
-
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+	
 {% endblock %}
 {# <a href="{{ path('app_games_new') }}">Create new</a>
 <a href="{{ path('app_games_show', {'id': game.id}) }}">show</a>
@@ -56,4 +86,20 @@ url = "{{ path('app_games_index') }}"
 window.location.href = url
 }
 </script>
-<button id='btn-search' onclick="handleChange()" class="mx-4 hover:scale-105 hover:text-black text-white border border-white px-4 mb-4 rounded-lg">Buscar</button> #}
+<button id='btn-search' onclick="handleChange()" class="mx-4 hover:scale-105 hover:text-black text-white border border-white px-4 mb-4 rounded-lg">Buscar</button>
+
+
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+<button type="submit">Buscar</button>
+{{ form_end(form) }}
+
+{% if games is not empty %}
+	<h2>Resultados:</h2>
+	<ul>
+		{% for game in games %}
+			<li>{{ game.title }}</li>
+		{% endfor %}
+	</ul>
+{% endif %} #}
