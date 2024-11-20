@@ -9,6 +9,7 @@
     rgba(149, 149, 149, 1) 100%);
     padding: 48px;
     padding-top: 10px;
+    box-shadow: 1px 1px 7px 7px rgb(119, 255, 78);
 }
 
 .btn {
@@ -16,16 +17,14 @@
     font-size: medium;
 }
 
-#btn {
-    color: rgb(77, 253, 77);
-}
+
 
 .logo {
     width: 100px;
     height: 100px;
     background-image: url("../image/logo.png");
     background-size: cover;
-    margin: 10px auto;
+    margin: 5px auto;
     border-radius: 50%/50%;
 }
 
@@ -43,12 +42,13 @@ input {
 .logo:hover {
     rotate: 360deg;
     transition-duration: 1.5s;
-    box-shadow: 1px 1px 10px 10px rgb(146, 146, 146);
+    box-shadow: 0.5px 0.5px 5px 5px rgb(119, 255, 78);
 }
 
 .hover:hover {
     transform: scale(1.1);
-    text-shadow: 5px 5px 40px #ffffff;
+    text-shadow: 5px 5px 40px rgb(119, 255, 78);
+    color: rgb(119, 255, 78);
 }
 
 .searcher {
@@ -99,7 +99,24 @@ input {
     text-align: center;
     height: 50px;
     width: 260px;
-    
+}
+
+#btn {
+    border-color: rgba(255, 255, 255, 0.808);
+    border-width: 1px;
+    border-radius: 5px;
+    width: 80px;
+    height: 33px;
+}
+
+
+#btn:hover {
+    transform: scale(1.1);
+    border-color: rgb(119, 255, 78);
+    border-width: 1px;
+    border-radius: 5px;
+    color: rgb(119, 255, 78);
+    box-shadow: 0.5px 0.5px 5px 5px rgb(119, 255, 78);
 }
 
 .backBtn:hover {
@@ -116,26 +133,40 @@ input {
     border-radius: 15px;
 }
 
-/*ESTRELLITA*/
-
-
-/* Tamaño y estilo de la estrella */
-.favorite-btn i {
-    font-size: 30px;
-    cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
+.agreebtn {
+    width: 15px;
+    height: 15px;
+    margin-top: 6px;
+    margin-left: 115px;
 }
 
-.favorite-btn:hover i {
+.btncontainer {
+    display: flex;
+    width: 250px;
+    height: 30px;
+    font-size: large;
+    margin-bottom: 13px;
+}
+
+.btnregister {
+    border-color: rgba(255, 255, 255, 0.616);
+    border-width: 1px;
+    border-radius: 5px;
+    width: 100px;
+    margin-top: 15px;
+}
+
+.btnregister:hover {
     transform: scale(1.1);
+    border-color: rgb(119, 255, 78);
+    border-width: 1px;
+    border-radius: 5px;
+    color: rgb(119, 255, 78);
+    box-shadow: 0.5px 0.5px 5px 5px rgb(119, 255, 78);
 }
 
-/* Estilos adicionales para el botón */
-.favorite-btn {
-    border: none;
-    background: none;
+.trendingbox {
+    box-shadow: 1px 1px 7px 7px rgb(119, 255, 78);
 }
 
-.empty-star{
-background-image: "/home/reboot-student/code/labs/Proyecto-Symfony/GameFinder/assets/image/Screenshot from 2024-11-20 15-34-24.png";
-}
+

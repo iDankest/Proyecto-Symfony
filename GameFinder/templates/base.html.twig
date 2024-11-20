@@ -43,9 +43,9 @@
 		{% block header %}
 			{% if app.user %}
 
-				<div class="pt-5 mx-10 mb-10 ">
-					<div class="grid grid-cols-5 gap-4 h-[114px] justify-items-center max-w-[1650px] m-auto bg-black bg-opacity-60
-						 text-white rounded-3xl border border-neutral-950">
+				<div class="pt-5 mb-20">
+					<div class="grid grid-cols-4 gap-10 justify-items-center max-w-[1650px] m-auto bg-black bg-opacity-60
+						 text-white rounded-3xl text-2xl border border-neutral-950 min-w-[500px] h-[114px]">
 						<a href="{{ path('app_home') }}" class="logo"></a>
 						<a href="{{ path('app_games_index') }}" class="hover flex items-center text-3xl h-[114px]">Search for games</a>
 						<a href="{{ path('app_user_show',{'id': app.user.id}) }}" class="hover flex items-center text-3xl h-[114px]">Profile</a>
@@ -56,12 +56,12 @@
 				</div>
 
 			{% else %}
-				<div class="pt-5 mb-10 ">
-					<div class="grid grid-cols-3 gap-2 justify-items-center max-w-[1650px] m-auto bg-black bg-opacity-60
-						 text-white rounded-3xl py-[10px] text-2xl border border-neutral-950 min-w-[500px]">
+				<div class="pt-5 mb-20">
+					<div class="grid grid-cols-3 gap-2 justify-items-center items-center justify-center max-w-[1650px] m-auto bg-black bg-opacity-60
+						 text-white rounded-3xl text-2xl border border-neutral-950 min-w-[500px] h-[114px]">
 						<a href="{{ path('app_home') }}" class="logo"></a>
-						<a href="{{ path('app_games_index') }}" class="hover flex items-center text-3xl">Search for games</a>
-						<a href="{{ path('app_login') }}" class="hover flex items-center text-3xl">Log in</a>
+						<a href="{{ path('app_games_index') }}" class="hover flex items-center text-3xl text-center h-10 p-6 rounded-full">Search for games</a>
+						<a href="{{ path('app_login') }}" class="hover flex items-center text-3xl text-center">Log in</a>
 					</div>
 				</div>
 			{% endif %}
@@ -69,12 +69,12 @@
 		{% endblock %}
 		{% block body %}
 
-			<div class="flex justify-center mt-10 max-w-[300px] bg-black bg-opacity-60 text-white rounded-full py-[30px] text-4xl border border-neutral-950 m-auto my-[130px]">Trending</div>
+			<div class="flex justify-center mt-20 max-w-[210px] bg-black bg-opacity-60 text-white rounded-full py-[15px] text-4xl border border-neutral-950 m-auto my-[150px] trendingbox">Trending</div>
 			<div
 				class="flex justify-around">
 
 				{#  <div class="w-[300px] h-[260px] bg-black ">{{game.photo}}</div>
-																   <div class="w-[300px] h-[260px] bg-black"></div> #}
+				  <div class="w-[300px] h-[260px] bg-black"></div> #}
 
 				<div class="flex flex-wrap gap-8 justify-center">
 
