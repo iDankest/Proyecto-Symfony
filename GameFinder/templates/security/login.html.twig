@@ -41,12 +41,12 @@
 
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br>
 
-					<button id="btn" class="block m-auto btn-lg btn-primary text-xl" type="submit">
+					<button id="btn" class="block m-auto text-xl" type="submit">
 						Sign in
 					</button>
 
-					<div class="mt-[20px] flex justify-center">YOU ARE NOT REGISTERED?</div>
-					<a class="flex justify-center" href="{{ path('app_register') }}">
+					<div class="mt-[20px] flex justify-center mb-2">YOU ARE NOT REGISTERED?</div>
+					<a class="flex justify-center m-auto btnregister" href="{{ path('app_register') }}">
 						REGISTER</a>
 
 				</div>
