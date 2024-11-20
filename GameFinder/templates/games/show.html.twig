@@ -16,9 +16,10 @@
 	<div class="w-[1386px] mx-auto mt-10 mb-24">
 		<div class="mb-8 text-center text-6xl font-semibold">{{ game.title }}</div>
 
-
-		<div class="text-4xl font-medium mb-4">About</div>
-		<div class="text-xl">{{ game.description }}</div>
+		<div class="bg-black bg-opacity-60 about">
+			<div class="text-4xl font-medium mb-4">About</div>
+			<div class="text-xl">{{ game.description }}</div>
+		</div>
 	</div>
 
 	<div class="w-[1386px] mx-auto flex">
@@ -57,7 +58,7 @@
 	{# <td>{{ game.genreId }}</td> #}
 
 
-	<a class="flex justify-center text-4xl mb-20" href="{{ path('app_games_index') }}">Back to games</a>
+	<a class="flex justify-center text-3xl backBtn" href="{{ path('app_games_index') }}">Back to games</a>
 </div>
 
 {# <a href="{{ path('app_games_edit', {'id': game.id}) }}">edit</a>

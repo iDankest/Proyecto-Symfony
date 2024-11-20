@@ -77,17 +77,41 @@ input {
     background-color: rgba(0, 0, 0, 0.616);
 }
 
-.inline-block-container{
+.inline-block-container {
     text-align: center;
 }
 
-.item{
+.item {
     display: inline-block;
     margin: 0 10px;
     margin-bottom: 20px;
 }
 
-.edit{
+.edit {
     color:black;
     margin: 10px 0px;
+}
+
+.backBtn {
+    display: flex;
+    align-items: center;
+    margin: 80px auto;
+    text-align: center;
+    height: 50px;
+    width: 260px;
+    
+}
+
+.backBtn:hover {
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.616);
+    border-width: 1px;
+    border-radius: 10px;
+    /* background-color: rgba(0, 0, 0, 0.616); */
+    box-shadow: 1px 1px 10px 10px rgba(146, 146, 146);
+}
+
+.about {
+    padding: 20px;
+    border-radius: 15px;
 }
