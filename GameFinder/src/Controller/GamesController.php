@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Games;
 use App\Form\GamesType;
 use App\Repository\GamesRepository;
+use App\Entity\Favorite;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,16 +44,22 @@ class GamesController extends AbstractController
                 ->getQuery()
                 ->getResult();
         }
+        $user = $this->getUser(); // Obtener al usuario logueado
+        $favoriteRepository = $entityManager->getRepository(Favorite::class);
+        $favorites = $favoriteRepository->findBy(['user' => $user]);
+
+        // Obtener los juegos asociados a los favoritos
+        $favoriteGames = [];
+        foreach ($favorites as $favorite) {
+            $favoriteGames[] = $favorite->getGame();
+        }
 
         return $this->render('games/index.html.twig', [
             'form' => $form->createView(),
             'games' => $games,
             'backgroundImage' => $this->randomImage,
+            'favoriteGames' => $favoriteGames,
         ]);
-
-        //return $this->render('games/index.html.twig', [
-         //   'games' => $gamesRepository->findAll(),
-       // ]);
     }
 
     #[Route('/search', name: 'game_search')]
@@ -72,11 +79,21 @@ class GamesController extends AbstractController
                 ->getQuery()
                 ->getResult();
         }
+        $user = $this->getUser(); // Obtener al usuario logueado
+        $favoriteRepository = $entityManager->getRepository(Favorite::class);
+        $favorites = $favoriteRepository->findBy(['user' => $user]);
+
+        // Obtener los juegos asociados a los favoritos
+        $favoriteGames = [];
+        foreach ($favorites as $favorite) {
+            $favoriteGames[] = $favorite->getGame();
+        }
 
         return $this->render('games/search.html.twig', [
             'form' => $form->createView(),
             'games' => $games,
             'backgroundImage' => $this->randomImage,
+            'favoriteGames' => $favoriteGames,
         ]);
     }
     

@@ -1,20 +1,38 @@
-{# {% extends 'base.html.twig' %}
+ {% extends 'base.html.twig' %}
 
 {% block body %}
 
-{{ form_start(form) }}
-{{ form_widget(form) }}
-<button type="submit">Buscar</button>
-{{ form_end(form) }}
+<div class="flex flex-col items-center justify-center mt-8">
+        <h2 class="text-3xl text-white mb-4">Tus Juegos Favoritos</h2>
+        {% if favoriteGames is not empty %}
+            <div class="flex flex-wrap gap-6 justify-center">
+                {% for game in favoriteGames %}
+                    <div class="w-[530px] h-[340px] text-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard">
+                        <a href="{{ path('app_games_show', {'id': game.id}) }}">
+                            <div class="w-full h-4/5 mb-4" style="background-image: url('{{ game.photo }}'); background-size: cover;">
+							 {% if app.user %}
+							<form action="{{ path('game_favorite', {'id': game.id, 'route':'favorites'}) }}" method="POST" style="display:inline;">
+                        	<button type="submit" class="favorite-btn text-white bg-red-500 hover:bg-red-700 rounded px-4 py-2 mt-4">
+                            {% if game in favoriteGames %}
+                                remove from favorites
+                            {% else %}
+                                add to favorites
+                            {% endif %}
+							{% endif %}
+                        	</button>
+                    		</form>
+							</div>
+                            <p class="text-2xl text-center">{{ game.title }}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-white text-2xl">No tienes juegos favoritos.</p>
+        {% endif %}
+    </div>
 
-{% if games is not empty %}
-	<h2>Resultados:</h2>
-	<ul>
-		{% for game in games %}
-			<li>{{ game.title }}</li>
-		{% endfor %}
-	</ul>
-{% endif %}
+{% endblock %} 
 
-{% endblock %} #}
+
 
