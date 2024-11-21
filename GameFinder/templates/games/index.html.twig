@@ -14,27 +14,6 @@
         </div>
         {{ form_end(form) }}
     </div>
-
-    {# Contenedor de juegos favoritos #}
- {#    <div class="flex flex-col items-center justify-center mt-8">
-        <h2 class="text-3xl text-white mb-4">Tus Juegos Favoritos</h2>
-        {% if favoriteGames is not empty %}
-            <div class="flex flex-wrap gap-6 justify-center">
-                {% for game in favoriteGames %}
-                    <div class="w-[530px] h-[340px] text-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard">
-                        <a href="{{ path('app_games_show', {'id': game.id}) }}">
-                            <div class="w-full h-4/5 mb-4" style="background-image: url('{{ game.photo }}'); background-size: cover;"></div>
-                            <p class="text-2xl text-center">{{ game.title }}</p>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-        {% else %}
-            <p class="text-white">No tienes juegos favoritos.</p>
-        {% endif %}
-    </div> #}
-
-    {# Contenedor de juegos filtrados #}
 	
     <div class="flex flex-col items-center justify-center ">
 
@@ -44,16 +23,17 @@
 
         <div class="flex flex-wrap gap-6 justify-center">
             {% for game in games %}
-                <div class="w-[530px] h-[300px] text-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard">
+                <div class="w-[530px] h-[290px] text-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard">
                     <a href="{{ path('app_games_show', {'id': game.id}) }}">
                         <div class="w-full h-4/5 mb-4" style="background-image: url('{{ game.photo }}'); background-size: cover;">
 						    {% if app.user %}
 							<form action="{{ path('game_favorite', {'id': game.id, 'route':'games'}) }}" method="POST" style="display:inline;">
-                        	<button type="submit" class="favorite-btn text-white bg-red-500 hover:bg-red-700 rounded px-4 py-2 mt-4">
+                            {# Botón para agregar o eliminar favorito #}
+                        	<button type="submit" class="favorite-btn text-3xl text-white favoriteCard hover:scale-110 rounded-full px-1 py-0.2 mt-2 ml-2">
                             {% if game in favoriteGames %}
-                                remove from favorites
+                                ★
                             {% else %}
-                                add to favorites
+                                ☆
                             {% endif %}
 							{% endif %}
                         	</button>
@@ -62,7 +42,7 @@
                         	<p class="text-2xl text-center">{{ game.title }}</p>
                     </a>
 
-                    {# Botón para agregar o eliminar favorito #}
+                    
 
                 </div>
             {% endfor %}
