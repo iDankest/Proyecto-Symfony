@@ -12,13 +12,6 @@
     box-shadow: 1px 1px 7px 7px rgb(119, 255, 78);
 }
 
-.btn {
-    color: rgb(255, 0, 0);
-    font-size: medium;
-}
-
-
-
 .logo {
     width: 100px;
     height: 100px;
@@ -166,7 +159,20 @@ input {
 }
 
 .trendingbox {
+    color: rgb(119, 255, 78);
     box-shadow: 1px 1px 7px 7px rgb(119, 255, 78);
 }
 
+.favoriteCard {
+    color: rgb(119, 255, 78);
+    background-color: rgb(87, 85, 85);
+}
 
+.btnBack:hover {
+    color: rgb(119, 255, 78);
+}
+
+.text {
+    font-size: 1.25rem;
+    line-height: 2.20rem;
+}

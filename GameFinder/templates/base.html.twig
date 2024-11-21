@@ -43,20 +43,20 @@
 		{% block header %}
 			{% if app.user %}
 
-				<div class="pt-5 mb-20">
-					<div class="grid grid-cols-4 gap-10 justify-items-center max-w-[1650px] m-auto bg-black bg-opacity-60
-						 text-white rounded-3xl text-2xl border border-neutral-950 min-w-[500px] h-[114px]">
+				<div class="pt-5 mb-4">
+					<div class="grid grid-cols-5 gap-10 justify-items-center max-w-[1650px] m-auto bg-black bg-opacity-60
+                         text-white rounded-3xl text-2xl border border-neutral-950 min-w-[500px] h-[114px]">
 						<a href="{{ path('app_home') }}" class="logo"></a>
-						<a href="{{ path('app_games_index') }}" class="hover flex items-center text-3xl h-[114px]">Search for games</a>
-						<a href="{{ path('app_user_show',{'id': app.user.id}) }}" class="hover flex items-center text-3xl h-[114px]">Profile</a>
-						<a href="{{ path('game_search',{'id': app.user.id}) }}" class="hover flex items-center text-3xl h-[114px]">Favorite games</a>
-						<a href="{{ path('app_logout') }}" class="hover flex items-center text-3xl h-[114px]">Log out</a>
+						<a href="{{ path('app_games_index') }}" class="hover flex items-center text-2xl h-[114px]">Search for games</a>
+						<a href="{{ path('app_user_show',{'id': app.user.id}) }}" class="hover flex items-center text-2xl h-[114px]">Profile</a>
+						<a href="{{ path('game_search',{'id': app.user.id}) }}" class="hover flex items-center text-2xl h-[114px]">Favorite games</a>
+						<a href="{{ path('app_logout') }}" class="hover flex items-center text-2xl h-[114px]">Log out</a>
 
 					</div>
 				</div>
 
 			{% else %}
-				<div class="pt-5 mb-20">
+				<div class="pt-5 mb-4">
 					<div class="grid grid-cols-3 gap-2 justify-items-center items-center justify-center max-w-[1650px] m-auto bg-black bg-opacity-60
 						 text-white rounded-3xl text-2xl border border-neutral-950 min-w-[500px] h-[114px]">
 						<a href="{{ path('app_home') }}" class="logo"></a>
@@ -69,7 +69,7 @@
 		{% endblock %}
 		{% block body %}
 
-			<div class="flex justify-center mt-20 max-w-[210px] bg-black bg-opacity-60 text-white rounded-full py-[15px] text-4xl border border-neutral-950 m-auto my-[150px] trendingbox">Trending</div>
+			<div class="flex justify-center mt-20 max-w-[380px] bg-black bg-opacity-60 text-white rounded-full py-[15px] text-4xl border border-neutral-950 m-auto my-[150px] trendingbox">Trending games</div>
 			<div
 				class="flex justify-around">
 
@@ -80,7 +80,7 @@
 
 					{% for game in games %}
 
-						<div class="w-[530px] h-[280px] bg-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard text-white">
+						<div class="w-[530px] h-[290px] bg-white border border-gray-400 overflow-hidden shadow-lg rounded-md hover:scale-105 transition-all gameCard text-white">
 							<a href="{{ path('app_games_show', {'id': game.id}) }}">
 								<div class="w-full h-4/5 mb-4" style="background-image: url('{{ game.photo }}'); background-size: cover;"></div>
 								<p class="text-2xl text-center">{{ game.title }}</p>
